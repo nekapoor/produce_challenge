@@ -13,8 +13,8 @@ class CellularAutomata
   end
 
   def cells_after_generation!(gen_num)
-    return @cells if gen_num <= 1
-    gen_num.times do 
+    return @cells if gen_num == 0
+    (gen_num-1).times do 
       process_next_generation!
     end
   end

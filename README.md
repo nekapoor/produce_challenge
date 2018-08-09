@@ -20,14 +20,14 @@ ORIGINAL CELLS
  [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil]]  
   
   
-CELLS AFTER 20 GENERATIONS    
+CELLS AFTER 20 GENERATIONS       
 [[nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],  
  [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],  
- [nil, 1, 1, 1, 1, 1, nil, nil, nil, nil],  
- [nil, 3, 3, 1, 3, 3, nil, nil, nil, nil],  
- [nil, nil, nil, nil, 1, 1, 2, nil, 2, nil],  
- [nil, nil, 3, 1, nil, nil, nil, nil, nil, nil],  
- [nil, nil, 1, 3, nil, nil, 2, nil, 2, nil],  
- [nil, nil, nil, 1, nil, nil, nil, nil, nil, nil],  
- [nil, nil, nil, nil, 3, 3, 1, nil, nil, nil],  
- [nil, nil, nil, nil, 1, 1, nil, nil, nil, nil]]  
+ [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],  
+ [nil, 2, 2, nil, 2, 2, nil, nil, nil, nil],  
+ [nil, nil, nil, nil, nil, nil, 1, 3, 1, nil],  
+ [nil, nil, 2, nil, nil, nil, nil, 3, nil, nil],  
+ [nil, nil, nil, 2, nil, nil, 1, 3, 1, nil],  
+ [nil, nil, nil, nil, nil, nil, 2, nil, nil, nil],  
+ [nil, nil, nil, nil, 2, 2, nil, nil, nil, nil],  
+ [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil]]  
