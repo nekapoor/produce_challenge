@@ -146,6 +146,10 @@ class CellularAutomata
 end
 
 @ca = CellularAutomata.new(TEN_BY_TEN)
-@ca.cells_after_generation!(20)
+generations = 20
+@ca.cells_after_generation!(generations)
+puts "ORIGINAL CELLS"
 @ca.pretty_print_original_cells
+
+puts "CELLS AFTER #{generations} GENERATIONS"
 @ca.pretty_print_cells
