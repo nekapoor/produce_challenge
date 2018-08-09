@@ -5,16 +5,17 @@ TEN_BY_TEN = [[nil, nil, nil, nil, nil, nil, nil, nil, nil, nil], [nil, nil, 1, 
 
 class CellularAutomata
 
-  def initialize(arr)
+  def initialize(arr, generations = 1)
     @original_cells = arr
     @cells = arr
     @rows = arr.length
     @cols = arr[0].length
+    @generations = generations
   end
 
-  def cells_after_generation!(gen_num)
-    return @cells if gen_num == 0
-    (gen_num-1).times do 
+  def cells_after_generation!
+    return @cells if @generations == 0
+    (@generations-1).times do 
       process_next_generation!
     end
   end
@@ -142,9 +143,9 @@ class CellularAutomata
 
 end
 
-@ca = CellularAutomata.new(TEN_BY_TEN)
 generations = 20
-@ca.cells_after_generation!(generations)
+@ca = CellularAutomata.new(TEN_BY_TEN, generations)
+@ca.cells_after_generation!
 puts "ORIGINAL CELLS"
 @ca.pretty_print_original_cells
 
