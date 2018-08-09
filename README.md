@@ -1,6 +1,5 @@
 #### Some general notes
 
-~~1. I tried to write and run some super basic tests with rspec, but I guess I've always done this sort of thing with rails and I couldn't get them to run. That being said, I've included them in the cellular_automata_spec.rb file. Because I wanted to test private methods in the Cellular Automata class, I made all the methods public even though most of them should be private. ~~
 1. UPDATE: I got rspec to work. Just run `rspec spec/cellular_automata_spec.rb` (assuming rspec is installed. Run `gem install rspec` to install.)
 2. Towards the end of this exercise, I refactored the code into a class because I felt like I was passing around this array over and over again and it felt like this grid should live inside an object. Not sure if that's the best approach but things seemed more organized after I refactored. 
 3. This was a fun exercise! 
