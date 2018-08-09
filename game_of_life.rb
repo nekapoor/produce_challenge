@@ -3,7 +3,6 @@ require 'pp'
 FIVE_BY_FIVE = [[nil, nil, 1, nil, nil], [nil, nil, 1, 1, nil], [nil, 2, 2, 1, nil], [nil, nil, nil, 1, nil], [nil, nil, nil, nil, nil]]
 TEN_BY_TEN = [[nil, nil, nil, nil, nil, nil, nil, nil, nil, nil], [nil, nil, 1, 1, nil, nil, nil, nil, nil, nil], [nil, nil, nil, nil, 2, nil, nil, nil, nil, nil], [nil, nil, nil, 1, 2, nil, nil, nil, nil, nil], [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil], [nil, nil, 1, nil, nil, nil, nil, nil, nil, nil], [nil, 2, 1, nil, nil, nil, nil, nil, nil, nil], [nil, 2, nil, nil, nil, nil, nil, nil, nil, nil], [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil], [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil]]
 
-
 class CellularAutomata
 
   def initialize(arr)
