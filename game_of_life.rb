@@ -1,3 +1,4 @@
+require 'pp'
 
 FIVE_BY_FIVE = [[nil, nil, 1, nil, nil], [nil, nil, 1, 1, nil], [nil, 2, 2, 1, nil], [nil, nil, nil, 1, nil], [nil, nil, nil, nil, nil]]
 
@@ -97,6 +98,18 @@ def is_valid_location?(row, column, arr)
 	true
 end
 
+def process_next_generation(arr)
+	next_generation = Array.new(5) { Array.new(5)}
+	arr.each_with_index do |x, r|
+	  x.each_with_index do |y, c|
+			next_generation[r][c] = new_cell_for(r, c, arr)
+	  end
+	end
+	next_generation
+end
+
+pp FIVE_BY_FIVE
+pp process_next_generation(FIVE_BY_FIVE)
 
 
-p new_cell_for(2, 1, FIVE_BY_FIVE)
+p new_cell_for(1, 1, FIVE_BY_FIVE)
