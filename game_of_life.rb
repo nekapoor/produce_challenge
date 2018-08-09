@@ -2,27 +2,43 @@
 FIVE_BY_FIVE = [[nil, nil, 1, nil, nil], [nil, nil, 1, 1, nil], [nil, 2, 2, 1, nil], [nil, nil, nil, 1, nil], [nil, nil, nil, nil, nil]]
 
 def cell_type(row, column, arr)
-	return 'out of bounds' if row > 4 || column > 4
+	return false unless is_valid_location?(row, column, arr)
 	case arr[row][column]
 	when 1
-	  puts 'newborn'
+	  return 'newborn'
 	when 2
-	  puts 'adult'
+	  return 'adult'
 	when 3
-	  puts 'senior'
+	  return 'senior'
 	else
-	  puts nil
+	  return nil
 	end
 end
 
 def neighbor_newborn_count(current_row, current_column, arr)
+	neighbor_type_count(current_row, current_column, arr)[:newborn]
 end
 
 def neighbor_adult_count(current_row, current_column, arr)
-
+	neighbor_type_count(current_row, current_column, arr)[:adult]
 end
 
 def neighbor_senior_count(current_row, current_column, arr)
+	neighbor_type_count(current_row, current_column, arr)[:senior]
+end
+
+def neighbor_type_count(current_row, current_column, arr)
+	neighbor_hash = {:newborn => 0, :adult => 0, :senior => 0}
+	neighbors = surrounding_neighbor_locations(current_row, current_column, arr)
+	neighbors.each do |r, c|
+		type = cell_type(r, c, arr)
+		neighbor_hash[type.to_sym] += 1 if type
+	end
+	neighbor_hash
+end
+
+def total_neighbor_count(current_row, current_column, arr)
+	neighbor_type_count(current_row, current_column, arr).values.inject(0, :+)
 end
 
 def surrounding_neighbor_locations(current_row, current_column, arr)
@@ -38,6 +54,43 @@ def surrounding_neighbor_locations(current_row, current_column, arr)
 	locations 
 end
 
+def new_cell_for(current_row, current_column, arr)
+	case cell_type(current_row, current_column, arr)
+	when nil
+	  generate_new_cell_for_empty(current_row, current_column, arr)
+	when 'newborn'
+	  generate_new_cell_for_newborn(current_row, current_column, arr)
+	when 'adult'
+	  generate_new_cell_for_adult(current_row, current_column, arr)
+	else 
+	  return nil
+	end
+end
+
+def generate_new_cell_for_empty(current_row, current_column, arr)
+	if neighbor_adult_count(current_row, current_column, arr) == 2
+		return 1
+	else
+		return nil
+	end
+end
+
+def generate_new_cell_for_newborn(current_row, current_column, arr)
+	if total_neighbor_count(current_row, current_column, arr) >= 5 || total_neighbor_count(current_row, current_column, arr) <= 1
+		return nil
+	else
+		return 2
+	end
+end
+
+def generate_new_cell_for_adult(current_row, current_column, arr)
+	if total_neighbor_count(current_row, current_column, arr) >= 3 || total_neighbor_count(current_row, current_column, arr) == 0
+		return nil
+	else
+		return 3
+	end
+end
+
 def is_valid_location?(row, column, arr)
 	return false if row > 4 || column > 4
 	return false if row < 0 || column < 0
@@ -45,3 +98,5 @@ def is_valid_location?(row, column, arr)
 end
 
 
+
+p new_cell_for(2, 1, FIVE_BY_FIVE)
