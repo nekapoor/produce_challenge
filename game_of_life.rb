@@ -42,8 +42,6 @@ class CellularAutomata
 		pp @original_cells
 	end
 
-	private 
-
 	def new_cell_for(current_row, current_column)
 		case cell_type(current_row, current_column)
 		when nil
