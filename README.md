@@ -4,7 +4,7 @@
 3. This was a fun exercise! 
 
 #### How to execute the code 
-In the terminal, just type `ruby game_of_life.rb` and you should get an output of the original cells and the cells after 20 generations. Should you want to edit things, I didn't take the time to allow for inputs from the command line, but just open up game_of_life.rb and edit line 147 to see the cells after n generations. 
+In the terminal, just type `ruby game_of_life.rb` and you should get an output of the original cells and the cells after 20 generations. Should you want to edit things, I didn't take the time to allow for inputs from the command line, but just open up game_of_life.rb and edit line 146 to see the cells after n generations. 
 
 #### My output for the 10x10 grid
 ORIGINAL CELLS  
